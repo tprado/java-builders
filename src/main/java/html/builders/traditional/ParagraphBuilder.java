@@ -1,15 +1,14 @@
 package html.builders.traditional;
 
 import html.Paragraph;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
+@Setter
+@Accessors(fluent = true)
 public class ParagraphBuilder {
 
     private String text;
-
-    public ParagraphBuilder text(String text) {
-        this.text = text;
-        return this;
-    }
 
     public Paragraph build() {
         return new Paragraph(text);

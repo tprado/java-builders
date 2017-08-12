@@ -1,16 +1,15 @@
 package html.builders.fluent;
 
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+
 import java.util.function.Consumer;
 
-public abstract class BaseFluentBuilder<C, T> {
+@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+public abstract class BaseBuilder<C, T> {
 
     private final C context;
     private final Consumer<T> callback;
-
-    BaseFluentBuilder(C context, Consumer<T> callback) {
-        this.context = context;
-        this.callback = callback;
-    }
 
     public C $() {
         callback.accept(build());

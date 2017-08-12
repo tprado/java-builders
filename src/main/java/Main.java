@@ -1,6 +1,5 @@
 import html.Html;
-import html.builders.fluent.HtmlFluentBuilder;
-import html.builders.lambda.HtmlBuilder;
+import html.builders.fluent.HtmlBuilder;
 import html.builders.traditional.*;
 
 public class Main {
@@ -23,7 +22,7 @@ public class Main {
 
         System.out.println(doc1);
 
-        Html doc2 = HtmlBuilder.html(html -> html
+        Html doc2 = html.builders.lambda.HtmlBuilder.html(html -> html
             .head(head -> head
                 .link(link -> link
                     .rel("stylesheet").href("/css/main.css")
@@ -40,7 +39,7 @@ public class Main {
 
         System.out.println(doc2);
 
-        Html doc3 = HtmlFluentBuilder
+        Html doc3 = HtmlBuilder
             .html()
                 .head()
                     .link()

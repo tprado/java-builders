@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class BodyFluentBuilder<C> extends BaseFluentBuilder<C, Body> {
+public class BodyBuilder<C> extends BaseBuilder<C, Body> {
 
     private final List<Paragraph> paragraphs = new ArrayList<>();
 
-    BodyFluentBuilder(C context, Consumer<Body> callback) {
+    BodyBuilder(C context, Consumer<Body> callback) {
         super(context, callback);
     }
 
-    public ParagraphFluentBuilder<BodyFluentBuilder<C>> p() {
-        return new ParagraphFluentBuilder<>(this, paragraphs::add);
+    public ParagraphBuilder<BodyBuilder<C>> p() {
+        return new ParagraphBuilder<>(this, paragraphs::add);
     }
 
     @Override

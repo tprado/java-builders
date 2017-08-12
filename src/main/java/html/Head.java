@@ -1,21 +1,17 @@
 package html;
 
-import java.util.ArrayList;
+import lombok.Value;
+
 import java.util.List;
 
-import static java.util.stream.Collectors.joining;
+import static java.util.Collections.unmodifiableList;
 
+@Value
 public class Head {
 
-    private final List<Link> links = new ArrayList<>();
+    List<Link> links;
 
     public Head(List<Link> links) {
-        this.links.addAll(links);
+        this.links = unmodifiableList(links);
     }
-
-    @Override
-    public String toString() {
-        return "<head>" + links.stream().map(Link::toString).collect(joining()) + "</head>";
-    }
-
 }

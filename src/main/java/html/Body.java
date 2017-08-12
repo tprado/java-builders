@@ -1,21 +1,18 @@
 package html;
 
-import java.util.ArrayList;
+import lombok.Value;
+
 import java.util.List;
 
-import static java.util.stream.Collectors.joining;
+import static java.util.Collections.unmodifiableList;
 
+@Value
 public class Body {
 
-    private final List<Paragraph> paragraphs = new ArrayList<>();
+    List<Paragraph> paragraphs;
 
     public Body(List<Paragraph> paragraphs) {
-        this.paragraphs.addAll(paragraphs);
-    }
-
-    @Override
-    public String toString() {
-        return "<body>" + paragraphs.stream().map(Paragraph::toString).collect(joining()) + "</body>";
+        this.paragraphs = unmodifiableList(paragraphs);
     }
 
 }
